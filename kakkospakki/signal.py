@@ -1,17 +1,18 @@
 import requests
 
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+from kakkospakki.client import MQTTClient
 
 
-def update_notify_job_update(sender, instance, **kwargs):
-    # TODO notify only during update.
-    pass
+def notify_job(sender, instance, created, **kwargs):
+    if not created:
+        # TODO do something
+        pass
+    MQTTClient().update()
 
 
 def notify_event(sender, instance, **kwargs):
     #Moose().notify_event(recipient=instance.job.contact_phone, instance=instance)
-    pass
+    MQTTClient().update()
 
 
 class Moose(object):

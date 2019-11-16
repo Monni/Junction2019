@@ -1,3 +1,6 @@
 djangorestframework==3.10.3
 Pillow==6.2.1
-requests=2.22.0
+requests==2.22.0
+django-cors-headers==3.2.0
+paho-mqtt==1.5.0
+twilio==6.33.1

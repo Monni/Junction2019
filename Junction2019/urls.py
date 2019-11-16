@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from Junction2019.utils.router import APIRouter
-from kakkospakki.views import JobView, EventView, ImageView, UserView, HousingManagerView
+from kakkospakki.views import JobView, EventView, ImageView, UserView, HousingManagerView, FeedbackView
 
 router = APIRouter()
 
@@ -29,6 +29,7 @@ router.register('images', ImageView)
 router.register('events', EventView)
 router.register('users', UserView)
 router.register('housing_managers', HousingManagerView)
+router.register('feedback', FeedbackView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

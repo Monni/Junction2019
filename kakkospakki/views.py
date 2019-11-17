@@ -2,9 +2,9 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets, renderers
 from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
 
-from kakkospakki.models import Job, Event, Image, HousingManager, Feedback
+from kakkospakki.models import Job, Event, Image, HousingManager, Feedback, Employee
 from kakkospakki.serializers import JobSerializer, EventSerializer, ImageSerializer, HousingManagerSerializer, \
-    UserSerializer, FeedbackSerializer
+    UserSerializer, FeedbackSerializer, EmployeeSerializer
 
 
 class JPEGRenderer(renderers.BaseRenderer):
@@ -51,3 +51,9 @@ class FeedbackView(viewsets.ModelViewSet):
     lookup_field = 'pk'
     serializer_class = FeedbackSerializer
     queryset = Feedback.objects.all()
+
+
+class EmployeeView(viewsets.ModelViewSet):
+    lookup_field = 'pk'
+    serializer_class = EmployeeSerializer
+    queryset = Employee.objects.all()

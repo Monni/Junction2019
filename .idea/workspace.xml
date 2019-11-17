@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="431ce4a8-46c6-4d39-abf0-152927cbd9f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kakkospakki/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Junction2019/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Junction2019/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Junction2019/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Junction2019/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kakkospakki/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/kakkospakki/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kakkospakki/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/kakkospakki/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kakkospakki/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/kakkospakki/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kakkospakki/signal.py" beforeDir="false" afterPath="$PROJECT_DIR$/kakkospakki/signal.py" afterDir="false" />
@@ -86,7 +84,8 @@
       <workItem from="1573855629064" duration="6461000" />
       <workItem from="1573891142801" duration="6635000" />
       <workItem from="1573911624142" duration="7678000" />
-      <workItem from="1573922346065" duration="327000" />
+      <workItem from="1573922346065" duration="27859000" />
+      <workItem from="1573973209887" duration="1547000" />
     </task>
     <servers />
   </component>

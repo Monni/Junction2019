@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from kakkospakki.models import Job, Event, Image, HousingManager, Feedback
+from kakkospakki.models import Job, Event, Image, HousingManager, Feedback, Employee
 
 
 class ImageUrlField(serializers.RelatedField):
@@ -20,11 +20,34 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
 
 
+class HousingManagerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HousingManager
+        fields = ('pk', 'user', 'detail')
+
+
+class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Employee
+        fields = '__all__'
+
+
+class FeedbackSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Feedback
+        fields = '__all__'
+
+
 class JobSerializer(serializers.HyperlinkedModelSerializer):
+    pk = serializers.CharField(read_only=True)
     events = EventSerializer(many=True, read_only=True)
     images = ImageUrlField(many=True, read_only=True)
-    feedback = serializers.HyperlinkedRelatedField(many=False, view_name='feedback-detail', read_only=True)
+    feedback = FeedbackSerializer(read_only=True)
     status = serializers.ReadOnlyField()
+    housing_manager = serializers.HyperlinkedRelatedField(many=False, view_name='housingmanager-detail', queryset=HousingManager.objects)
+    employees = EmployeeSerializer(many=True, read_only=True, required=False)
+    user_first_name = serializers.CharField(source='user.first_name', read_only=True)
+    user_last_name = serializers.CharField(source='user.last_name', read_only=True)
 
     class Meta:
         model = Job
@@ -38,21 +61,8 @@ class ImageSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    housing_managers = serializers.HyperlinkedRelatedField(many=True, view_name='housingmanager-detail',
-                                                           queryset=HousingManager.objects)
+    housing_managers = HousingManagerSerializer(many=True, read_only=True)
 
     class Meta:
         model = User
-        fields = ('pk', 'username', 'housing_managers',)
-
-
-class HousingManagerSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = HousingManager
-        fields = '__all__'
-
-
-class FeedbackSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Feedback
-        fields = '__all__'
+        fields = ('pk', 'username', 'housing_managers', 'first_name', 'last_name')

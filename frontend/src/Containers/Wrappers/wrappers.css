@@ -1,0 +1,16 @@
+.content-wrapper {
+    height: 100%;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+
+
+.content-container {
+    height: calc(100% - 120px);
+    min-height: 626px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    background-color: white;  
+
+}
+

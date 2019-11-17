@@ -1,0 +1,8 @@
+
+
+@media only screen and (max-width: 500px) {
+    .logo {
+        padding-top: 200px;
+        width: 80%;
+    }
+}
